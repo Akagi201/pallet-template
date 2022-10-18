@@ -1,5 +1,7 @@
 # pallet-template
 
+[![Rust Check & Build](https://github.com/Akagi201/pallet-template/actions/workflows/ci.yml/badge.svg)](https://github.com/Akagi201/pallet-template/actions/workflows/ci.yml)
+
 A template boilerplate code to start a pallet development
 
 ## Pallet 依赖库注意事项
