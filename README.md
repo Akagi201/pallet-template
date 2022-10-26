@@ -19,3 +19,8 @@ cargo build [--release]
 # test
 cargo test
 ```
+
+## Substrate Learning Resources
+
+* <https://github.com/cuteolaf/substrate-learning-resources>
+* <https://learn.figment.io/tutorials/substrate-kitties-overview>
