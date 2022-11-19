@@ -45,7 +45,7 @@ pub mod pallet {
     pub enum Event<T: Config> {
         /// Event documentation should end with an array that provides descriptive names for event
         /// parameters. [something, who]
-        SomethingStored(u32, T::AccountId),
+        SomethingStored { something: u32, who: T::AccountId },
     }
 
     // Errors inform users that something went wrong.
@@ -75,7 +75,7 @@ pub mod pallet {
             <Something<T>>::put(something);
 
             // Emit an event.
-            Self::deposit_event(Event::SomethingStored(something, who));
+            Self::deposit_event(Event::SomethingStored { something, who });
             // Return a successful DispatchResultWithPostInfo
             Ok(())
         }
@@ -88,7 +88,7 @@ pub mod pallet {
             // Read a value from storage.
             match <Something<T>>::get() {
                 // Return an error if the value has not been set.
-                None => Err(Error::<T>::NoneValue.into()),
+                None => return Err(Error::<T>::NoneValue.into()),
                 Some(old) => {
                     // Increment the value read from storage; will error in the event of overflow.
                     let new = old.checked_add(1).ok_or(Error::<T>::StorageOverflow)?;
